@@ -2,15 +2,7 @@ var startDate = new Date(2015, 0, 12, 9, 30);
 var endDate = new Date(2015, 0, 20, 16, 0);
 var currentDate = new Date();
 
-$.getJSON("events.json", function(json) {
-    for (i in json)
-    {
-        var evt = json[i];
-        entry = "<li>" + evt.name + "</li>";
-        $("#events-list").append(entry);
-    }
-});
-
+loadEvents();
 moveProgressBar(2500);
 setInterval(function () {moveProgressBar(true)}, 2500);
 
@@ -18,6 +10,18 @@ setInterval(function () {moveProgressBar(true)}, 2500);
 $(window).resize(function() {
     moveProgressBar(0);
 });
+
+
+function loadEvents() {
+    $.getJSON("events.json", function(json) {
+        for (i in json)
+        {
+            var evt = json[i];
+            entry = "<li>" + evt.name + "</li>";
+            $("#events-list").append(entry);
+        }
+    });
+}
 
 function moveProgressBar(animationLength) {
     var projectLengthInMilliseconds = endDate.getTime() - startDate.getTime();
