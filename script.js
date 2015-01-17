@@ -2,6 +2,13 @@ var startDate = new Date(2015, 0, 12, 9, 30);
 var endDate = new Date(2015, 0, 20, 16, 0);
 var currentDate = new Date();
 
+$.getJSON("events.json", function(json) {
+    for (i in json)
+    {
+        console.log(json[i].name);
+    }
+});
+
 moveProgressBar(2500);
 setInterval(function () {moveProgressBar(true)}, 2500);
 
@@ -19,12 +26,13 @@ function moveProgressBar(animationLength) {
     // .stop() used to prevent animation queueing
     // percentageProgress = percentageProgress * 100
     percentage = percentageProgress.toFixed(2) + "%"
+    progressBar = $(".progress-bar");
 
     //set progress bar width
-    $('.progress-bar').stop().animate({
+    progressBar.stop().animate({
         width: percentage
     }, animationLength);
 
     // set percentage progress
-    $(".progress-bar").html(percentage);
+    progressBar.html(percentage);
 }
