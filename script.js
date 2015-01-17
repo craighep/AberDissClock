@@ -5,7 +5,9 @@ var currentDate = new Date();
 $.getJSON("events.json", function(json) {
     for (i in json)
     {
-        console.log(json[i].name);
+        var evt = json[i];
+        entry = "<li>" + evt.name + "</li>";
+        $("#events-list").append(entry);
     }
 });
 
