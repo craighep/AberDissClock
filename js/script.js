@@ -4,11 +4,11 @@ var currentDate = new Date();
 
 loadEvents();
 moveProgressBar(2500);
-setInterval(function () {moveProgressBar(true)}, 2500);
+setInterval(function () {moveProgressBar(2500)}, 2500);
 
 // on browser resize...
 $(window).resize(function() {
-    moveProgressBar(0);
+    moveProgressBar(2500);
 });
 
 
@@ -18,12 +18,13 @@ function loadEvents() {
         {
             var evt = json[i];
             entry = "<li>" + evt.name + "</li>";
-            $("#events-list").append(entry);
+            $(".events").append(entry);
         }
     });
 }
 
 function moveProgressBar(animationLength) {
+    currentDate = new Date();
     var projectLengthInMilliseconds = endDate.getTime() - startDate.getTime();
     var currentLengthInMilliseconds = currentDate.getTime() - startDate.getTime();
     var percentageProgress = currentLengthInMilliseconds / projectLengthInMilliseconds * 100;
@@ -31,14 +32,28 @@ function moveProgressBar(animationLength) {
     // on page load, animate percentage bar to data percentage length
     // .stop() used to prevent animation queueing
     // percentageProgress = percentageProgress * 100
-    percentage = percentageProgress.toFixed(2) + "%"
-    progressBar = $(".progress-bar");
+    percentage = percentageProgress.toFixed(3) + "%"
 
     //set progress bar width
-    progressBar.stop().animate({
+    $(".progress_bar .progress").animate({
         width: percentage
     }, animationLength);
 
     // set percentage progress
-    progressBar.html(percentage);
+    $(".progress_bar .percentage").html(percentage);
+
+    //set progress bar width
+    $(".progress_bar .percentage").fadeIn(animationLength);
+}
+
+function scrollToElement(element) {
+  // Scroll smoothly to element via ID
+  $('html, body').animate({
+    scrollTop: $(element).offset().top
+  }, 2000);
+
+  //Highlight text when scrolled down to
+  setTimeout(function () {
+  $(element).animate({color: 'yellow'},2000)
+  $(element).animate({color: 'white'},2000) },1000);
 }

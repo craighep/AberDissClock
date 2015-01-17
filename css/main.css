@@ -25,7 +25,7 @@ footer p{
 	color: white;
 }
 
-#newsletter{
+.about{
 	background: #369BA0;
 	padding: 15px 0px 0px 0px;
 	color: white;
@@ -46,7 +46,7 @@ footer p{
 transition: all 0.6s ease;
 transition: color 600ms ease-out;
   }
-  
+
     li.active a {
 -webkit-transition: all 0.6s ease;
 -moz-transition: all 0.6s ease;
@@ -55,7 +55,7 @@ transition: color 600ms ease-out;
 transition: all 0.6s ease;
 transition: background-color 600ms ease-out;
   }
-  
+
   a  img,  a.webicon{
 -webkit-transition: all 0.6s ease;
 -moz-transition: all 0.6s ease;
@@ -65,7 +65,7 @@ transition: all 0.6s ease;
 opacity:0.6;
 filter:alpha(opacity=60); /* For IE8 and earlier */
   }
-  
+
     a  img:hover, a.webicon:hover{
 	opacity:1;
 	filter:alpha(opacity=100); /* For IE8 and earlier */
@@ -73,25 +73,22 @@ filter:alpha(opacity=60); /* For IE8 and earlier */
 	-webkit-transform: rotate(20deg); /* Chrome, Safari, Opera */
 	transform: rotate(20deg);
   }
-  
-.border-List li:last-child { 
+
+.border-List li:last-child {
    border-right: NONE;
 }
 
-.border-List li { 
+.border-List li {
    border-right: 1px solid #f2f2f2;
    padding-right: 12px;
    margin-left: 0.8em;
 }
 
-#linkList{ 
+#linkList{
    overflow:visible;
    min-height:41px;
 }
 .contain-to-grid .top-bar{
-	max-width: 9999px !important;
-	padding-left: 7%;
-	padding-right: 7%;
 }
 
 .top-bar{
@@ -115,10 +112,28 @@ filter:alpha(opacity=60); /* For IE8 and earlier */
   padding-left: 5%;
   padding-right: 5%;
 }
-.progress_bar {
+.progress_bar .progress{
   background: #f80;
-  width: 30%;
-  padding:17px;
-  font-weight:bold;
+  width: 0%;
   top: 0;
+	height:50px;
+}
+.progress_bar .percentage{
+	text-align:center;
+	font-weight:bold;
+	color: orange;
+	display:none;
+}
+.nav-center{
+	max-width:72.125rem;
+	margin: 0 auto;
+}
+.title{
+	margin-bottom:20px;
+}
+.copywrite{
+	float:left;
+}
+.validate{
+	float:right;
 }
