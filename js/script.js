@@ -20,8 +20,12 @@ function loadEvents() {
             eventDate = new Date(evt.date);
             position = computePercentage(eventDate);
 
+            var icon = "cross.png";
+            if(position <= computePercentage(currentDate))
+              icon = "tick.png";
+
             var name = evt.name.replace(/ /g,"_");
-            entry = "<div class='event "+name+"'></div>";
+            entry = "<div class='event "+name+"'><img src='/AberDissClock/images/"+icon+"'/></div>";
             $(".events").append(entry);
 
             $("."+name).css({"margin-left":position+"%"});

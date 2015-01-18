@@ -147,6 +147,11 @@ filter:alpha(opacity=60); /* For IE8 and earlier */
 .event{
 	z-index:10;
 	position: absolute;
-	border:1px solid grey;
+	border-left:1px solid grey;
 	height:50px;
+	overflow:visible;
+}
+.event img{
+	height:40%;
+	width:40%;
 }

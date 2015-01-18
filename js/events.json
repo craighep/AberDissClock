@@ -1,10 +1,18 @@
 [
     {
         "name": "Project Begins",
-        "date": "2015-01-21T00:00:00+00:00"
+        "date": "2015-01-13T00:00:00+00:00"
+    },
+    {
+        "name": "Project Plan",
+        "date": "2015-01-18T19:39:00+00:00"
     },
     {
         "name": "Major Project Overview",
-        "date": "2015-01-21T12:00:00+00:00"
+        "date": "2015-01-24T12:00:00+00:00"
+    },
+    {
+        "name": "Major Project Hand In",
+        "date": "2015-02-20T12:16:00+00:00"
     }
 ]
