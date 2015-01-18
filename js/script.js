@@ -1,5 +1,5 @@
 var startDate = new Date(2015, 0, 12, 9, 30);
-var endDate = new Date(2015, 0, 20, 16, 0);
+var endDate = new Date(2015, 1, 20, 16, 0);
 var currentDate = new Date();
 
 loadEvents();
@@ -17,21 +17,22 @@ function loadEvents() {
         for (i in json)
         {
             var evt = json[i];
+            eventDate = new Date(evt.date);
+            position = computePercentage(eventDate);
+
             var name = evt.name.replace(/ /g,"_");
             entry = "<div class='event "+name+"'></div>";
             $(".events").append(entry);
-            console.log(name);
-            // TODO work out percentage here!
-            $("."+name).css({"margin-left":Math.floor((Math.random() * 100) + 1)+"%"});
+
+            $("."+name).css({"margin-left":position+"%"});
+
         }
     });
 }
 
 function moveProgressBar(animationLength) {
     currentDate = new Date();
-    var projectLengthInMilliseconds = endDate.getTime() - startDate.getTime();
-    var currentLengthInMilliseconds = currentDate.getTime() - startDate.getTime();
-    var percentageProgress = currentLengthInMilliseconds / projectLengthInMilliseconds * 100;
+    percentageProgress = computePercentage(currentDate);
 
     // on page load, animate percentage bar to data percentage length
     // .stop() used to prevent animation queueing
@@ -48,6 +49,12 @@ function moveProgressBar(animationLength) {
 
     //set progress bar width
     $(".progress_bar .percentage").fadeIn(animationLength);
+}
+
+function computePercentage(date) {
+    var projectLengthInMilliseconds = endDate.getTime() - startDate.getTime();
+    var currentLengthInMilliseconds = date.getTime() - startDate.getTime();
+    return currentLengthInMilliseconds / projectLengthInMilliseconds * 100;
 }
 
 function scrollToElement(element) {
