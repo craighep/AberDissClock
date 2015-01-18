@@ -17,8 +17,12 @@ function loadEvents() {
         for (i in json)
         {
             var evt = json[i];
-            entry = "<li>" + evt.name + "</li>";
+            var name = evt.name.replace(/ /g,"_");
+            entry = "<div class='event "+name+"'></div>";
             $(".events").append(entry);
+            console.log(name);
+            // TODO work out percentage here!
+            $("."+name).css({"margin-left":Math.floor((Math.random() * 100) + 1)+"%"});
         }
     });
 }

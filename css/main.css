@@ -117,6 +117,7 @@ filter:alpha(opacity=60); /* For IE8 and earlier */
   width: 0%;
   top: 0;
 	height:50px;
+	position:absolute;
 }
 .progress_bar .percentage{
 	text-align:center;
@@ -136,4 +137,16 @@ filter:alpha(opacity=60); /* For IE8 and earlier */
 }
 .validate{
 	float:right;
+}
+.events{
+	position:relative;
+}
+.events_wrap{
+	height:120px;
+}
+.event{
+	z-index:10;
+	position: absolute;
+	border:1px solid grey;
+	height:50px;
 }
