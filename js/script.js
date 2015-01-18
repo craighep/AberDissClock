@@ -13,7 +13,7 @@ $(window).resize(function() {
 
 
 function loadEvents() {
-    $.getJSON("/js/events.json", function(json) {
+    $.getJSON("/AberDissClock/js/events.json", function(json) {
         for (i in json)
         {
             var evt = json[i];
