@@ -1,5 +1,5 @@
 var startDate = new Date(2015, 0, 12, 9, 30);
-var endDate = new Date(2015, 5, 8, 16, 0);
+var endDate = new Date(2015, 4, 8, 16, 0);
 var currentDate = new Date();
 
 loadEvents();
