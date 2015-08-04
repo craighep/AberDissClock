@@ -42,8 +42,7 @@ function moveProgressBar(animationLength) {
     // .stop() used to prevent animation queueing
     // percentageProgress = percentageProgress * 100
     percentage = percentageProgress.toFixed(3) + "%"
-    if (percentage > 100)
-        percentage = 100;
+   
     //set progress bar width
     $(".progress_bar .progress").animate({
         width: percentage
@@ -59,7 +58,10 @@ function moveProgressBar(animationLength) {
 function computePercentage(date) {
     var projectLengthInMilliseconds = endDate.getTime() - startDate.getTime();
     var currentLengthInMilliseconds = date.getTime() - startDate.getTime();
-    return currentLengthInMilliseconds / projectLengthInMilliseconds * 100;
+    var percentage =  currentLengthInMilliseconds / projectLengthInMilliseconds * 100;
+    if (percentage > 100)
+        percentage = 100;
+    return percentage;
 }
 
 function scrollToElement(element) {
