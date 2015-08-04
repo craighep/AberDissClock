@@ -42,7 +42,8 @@ function moveProgressBar(animationLength) {
     // .stop() used to prevent animation queueing
     // percentageProgress = percentageProgress * 100
     percentage = percentageProgress.toFixed(3) + "%"
-
+    if (percentage > 100)
+        percentage = 100;
     //set progress bar width
     $(".progress_bar .progress").animate({
         width: percentage
